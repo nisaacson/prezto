@@ -11,3 +11,37 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+promptinit
+
+#######################
+# environment settings
+#######################
+export EDITOR="vim"
+# export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
+export TERM="xterm-256color"
+ulimit -n 4096
+
+alias up="cd .."
+alias gst="git status"
+alias gd="git diff"
+alias gdc="git diff --cached"
+
+# Vagrant
+alias v="vagrant"
+alias vu="vagrant up"
+alias vh="vagrant halt"
+alias vr="vagrant reload"
+alias vd="vagrant destroy"
+alias vs="vagrant ssh"
+alias vp="vagrant provision"
+
+# By default, zsh considers many characters part of a word (e.g., _ and -).
+# Narrow that down to allow easier skipping through words via M-f and M-b.
+export WORDCHARS='*?[]~&;!$%^<>'
+
+# first: brew install source-highlight
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+source ~/dotfiles/bin/antibody/antibody.zsh
+
+PROG=utopia source /usr/local/share/zsh/site-functions/utopia_autocomplete.zsh
